@@ -1,6 +1,7 @@
 /**
  * LMS UMM — QUIZ CLARITY LOGIC (BASELINE: PRD ONLY)
  * Implementasi Functional Requirements (FR-01 s.d FR-08) & State Matrix (S1 s.d S8 & S9)
+ * Optimized for Mobile Gestures & Ergonomics
  */
 
 (function () {
@@ -15,8 +16,8 @@
       bannerClass: 'state-open',
       label: 'TERBUKA',
       timerSuffix: 'ditutup dalam 02:14:33',
-      subtext: 'Kuis dapat dikerjakan sekarang. Pastikan Anda memiliki waktu dan koneksi yang cukup.',
-      icon: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>`,
+      subtext: 'Kuis dapat dikerjakan sekarang. Pastikan koneksi stabil sebelum memulai.',
+      icon: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>`,
       ctaText: 'Mulai Mengerjakan',
       ctaEnabled: true,
       ctaReason: '',
@@ -32,10 +33,10 @@
       bannerClass: 'state-password-required',
       label: 'TERBUKA — PERLU PASSWORD',
       timerSuffix: 'ditutup dalam 02:14:33',
-      subtext: 'Kuis ini diproteksi password. Masukkan password resmi sebelum dapat memulai pengerjaan.',
-      icon: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>`,
+      subtext: 'Kuis diproteksi password. Masukkan password resmi untuk mengaktifkan tombol mulai.',
+      icon: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>`,
       ctaText: 'Mulai Mengerjakan',
-      ctaEnabled: false, // Menjadi true setelah password benar
+      ctaEnabled: false, // Menjadi true setelah password diverifikasi benar
       ctaReason: 'Masukkan password yang benar untuk mengaktifkan tombol pengerjaan.',
       hasPassword: true,
       sisaKesempatan: '1 dari 1',
@@ -50,7 +51,7 @@
       label: 'SEGERA DITUTUP',
       timerSuffix: 'sisa 00:39:12',
       subtext: 'Batas waktu kuis hampir habis. Segera mulai agar tidak kehilangan kesempatan.',
-      icon: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2v20M17 5H7M17 19H7M7 5l10 14M17 5L7 19"></path></svg>`,
+      icon: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2v20M17 5H7M17 19H7M7 5l10 14M17 5L7 19"></path></svg>`,
       ctaText: 'Mulai Mengerjakan',
       ctaEnabled: true,
       ctaReason: '',
@@ -66,8 +67,8 @@
       bannerClass: 'state-closed',
       label: 'DITUTUP',
       timerSuffix: 'sejak Kamis, 18 Juni 2026 · 15.30 WIB',
-      subtext: 'Kuis ini sudah ditutup. Pengiriman jawaban dan akses pengerjaan baru tidak lagi diterima.',
-      icon: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>`,
+      subtext: 'Kuis ini sudah ditutup. Pengiriman jawaban baru tidak lagi diterima sistem.',
+      icon: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>`,
       ctaText: 'Belum Dapat Dikerjakan',
       ctaEnabled: false,
       ctaReason: 'Kuis ini sudah ditutup sejak Kamis, 18 Juni 2026 pukul 15.30 WIB, sehingga tidak dapat dikerjakan. Bila Anda memiliki izin susulan, hubungi dosen pengampu.',
@@ -83,8 +84,8 @@
       bannerClass: 'state-no-attempt',
       label: 'KESEMPATAN HABIS',
       timerSuffix: '1 dari 1 digunakan',
-      subtext: 'Anda telah menyelesaikan kuis ini. Evaluasi jawaban Anda telah tersimpan di sistem.',
-      icon: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>`,
+      subtext: 'Anda telah menyelesaikan kuis ini. Evaluasi jawaban Anda telah tersimpan di LMS.',
+      icon: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>`,
       ctaText: 'Belum Dapat Dikerjakan',
       ctaEnabled: false,
       ctaReason: 'Anda telah menggunakan seluruh kesempatan pengerjaan kuis ini (1 dari 1).',
@@ -101,7 +102,7 @@
       label: 'BELUM DIBUKA',
       timerSuffix: 'Mulai Kamis, 23 April 2026 · 11.00 WIB',
       subtext: 'Kuis belum memasuki waktu pengerjaan. Tombol akan aktif otomatis saat waktu server tiba.',
-      icon: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>`,
+      icon: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>`,
       ctaText: 'Belum Dapat Dikerjakan',
       ctaEnabled: false,
       ctaReason: 'Kuis ini akan dibuka pada Kamis, 23 April 2026 pukul 11.00 WIB.',
@@ -118,7 +119,7 @@
       label: 'STATUS BELUM DIMUAT',
       timerSuffix: 'Gangguan Jaringan',
       subtext: 'Status kuis belum dapat dimuat. Periksa koneksi Anda, lalu coba muat ulang.',
-      icon: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>`,
+      icon: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>`,
       ctaText: 'Coba Muat Ulang',
       ctaEnabled: true,
       ctaReason: 'Status kuis belum dapat dimuat. Periksa koneksi Anda, lalu coba muat ulang.',
@@ -142,6 +143,8 @@
   ];
 
   // DOM Elements
+  const testerToolbar = document.getElementById('testerToolbar');
+  const btnToggleTesterCollapse = document.getElementById('btnToggleTesterCollapse');
   const stateSelector = document.getElementById('stateSelector');
   const btnToggleViewport = document.getElementById('btnToggleViewport');
   const viewportWrapper = document.getElementById('viewportWrapper');
@@ -158,6 +161,7 @@
   const navLogo = document.getElementById('navLogo');
   const crumbCourseLink = document.getElementById('crumbCourseLink');
   const btnOpenFromDash = document.getElementById('btnOpenFromDash');
+  const menuItemDPL = document.getElementById('menuItemDPL');
 
   // Views
   const viewQuizDetail = document.getElementById('viewQuizDetail');
@@ -210,19 +214,23 @@
     setupEventListeners();
     renderState('S1');
     renderAuditTable();
+
+    // Auto-collapse toolbar on very small screen so it doesn't take space
+    if (window.innerWidth <= 480 && testerToolbar) {
+      testerToolbar.classList.add('collapsed');
+    }
   }
 
   // --- SERVER CLOCK (FR-01: Waktu Server Resmi WIB) ---
   function startServerClock() {
     function updateClock() {
       const now = new Date();
-      // Format Jam Server WIB (UTC+7)
       const hours = String(now.getHours()).padStart(2, '0');
       const minutes = String(now.getMinutes()).padStart(2, '0');
       const seconds = String(now.getSeconds()).padStart(2, '0');
       const timeStr = `${hours}.${minutes}.${seconds} WIB`;
       if (serverClockText) {
-        serverClockText.textContent = `Server: ${timeStr}`;
+        serverClockText.textContent = timeStr;
       }
       if (dashCardTimestamp) {
         dashCardTimestamp.textContent = `Status per ${hours}.${minutes} WIB`;
@@ -379,19 +387,45 @@
         <td><strong>${item.timestamp}</strong></td>
         <td><span class="audit-badge ${item.status.includes('DITUTUP') ? 'badge-closed' : 'badge-open'}">${item.status}</span></td>
         <td>${item.action}</td>
-        <td><span style="color:#059669; font-weight:600;">✓ ${item.result}</span></td>
+        <td><span style="color:#059669; font-weight:700;">✓ ${item.result}</span></td>
       `;
       auditTableBody.appendChild(tr);
     });
   }
 
-  // --- MODAL UTILITIES ---
+  // --- MODAL UTILITIES (Semantic <dialog> & Mobile Safe) ---
   function openModal(modalEl) {
-    if (modalEl) modalEl.removeAttribute('hidden');
+    if (!modalEl) return;
+    modalEl.removeAttribute('hidden');
+    if (typeof modalEl.showModal === 'function') {
+      try {
+        if (!modalEl.open) {
+          modalEl.showModal();
+        }
+      } catch (e) {
+        modalEl.setAttribute('open', '');
+      }
+    } else {
+      modalEl.setAttribute('open', '');
+    }
+    document.body.style.overflow = 'hidden'; // cegah background scrolling di mobile
   }
 
   function closeModal(modalEl) {
-    if (modalEl) modalEl.setAttribute('hidden', 'true');
+    if (!modalEl) return;
+    if (typeof modalEl.close === 'function') {
+      try {
+        if (modalEl.open) {
+          modalEl.close();
+        }
+      } catch (e) {
+        modalEl.removeAttribute('open');
+      }
+    } else {
+      modalEl.removeAttribute('open');
+    }
+    modalEl.setAttribute('hidden', 'true');
+    document.body.style.overflow = '';
   }
 
   // --- EXAM SIMULATION (TIMER HITUNG MUNDUR) ---
@@ -428,6 +462,13 @@
 
   // --- EVENT LISTENERS ---
   function setupEventListeners() {
+    // 0. Toggle Collapse Tester Toolbar
+    if (btnToggleTesterCollapse) {
+      btnToggleTesterCollapse.addEventListener('click', () => {
+        testerToolbar.classList.toggle('collapsed');
+      });
+    }
+
     // 1. Selector State PRD
     stateSelector.addEventListener('change', (e) => {
       const val = e.target.value;
@@ -443,7 +484,7 @@
     btnToggleViewport.addEventListener('click', () => {
       const isMobileFrame = viewportWrapper.classList.toggle('mode-mobile-frame');
       btnToggleViewport.classList.toggle('active', isMobileFrame);
-      btnToggleViewport.textContent = isMobileFrame ? '💻 Kembali ke Desktop' : '📱 Simulasi Mobile (360×640)';
+      btnToggleViewport.querySelector('.tool-text').textContent = isMobileFrame ? 'Desktop Mode' : 'Frame 360×640';
     });
 
     // 3. View Log Akses (FR-08)
@@ -455,14 +496,22 @@
     btnToggleDrawer.addEventListener('click', () => {
       lmsSidebar.classList.add('open');
       drawerBackdrop.classList.add('active');
+      document.body.style.overflow = 'hidden';
     });
 
     btnCloseDrawer.addEventListener('click', closeDrawer);
     drawerBackdrop.addEventListener('click', closeDrawer);
+    if (menuItemDPL) {
+      menuItemDPL.addEventListener('click', () => {
+        closeDrawer();
+        switchView('quizDetail');
+      });
+    }
 
     function closeDrawer() {
       lmsSidebar.classList.remove('open');
       drawerBackdrop.classList.remove('active');
+      document.body.style.overflow = '';
     }
 
     // 5. Accordion Instruksi Dosen (B6)
@@ -548,6 +597,15 @@
 
     // 13. Selesaikan Simulasi Ujian
     btnFinishExamSim.addEventListener('click', finishExam);
+
+    // 14. Dialog native escape cancel handler
+    [modalConfirmPreStart, modalContactLecturer, modalAuditLog, modalExamSimulation].forEach(dialog => {
+      if (dialog) {
+        dialog.addEventListener('cancel', () => {
+          closeModal(dialog);
+        });
+      }
+    });
 
     // 14. Navigasi Antar Halaman (FR-02)
     navBtnDashboard.addEventListener('click', () => switchView('dashboard'));
